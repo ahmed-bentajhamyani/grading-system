@@ -1,0 +1,45 @@
+<div class="">
+    <p class="font-bold text-gray-900 text-2xl my-4">اختبر معلوماتك التاريخية عن المغرب
+        واستمتع بالتعلم.</p>
+    <form class="">
+        <ng-container *ngFor="let q of questions">
+            <div class="mb-4">
+                <label class="block text-gray-900 mb-2" for="question">
+                    <span class="font-extrabold">السؤال {{q.questionId}} : </span>{{q.question}}
+                </label>
+                <ng-container *ngFor="let g of grades">
+                    <ng-container *ngIf="g.question_id === q.questionId">
+                        <p><span class="font-extrabold">الجواب :</span> {{g.answer}} </p>
+                        <div class="my-2 p-2 rounded-lg border"
+                            [ngClass]="{'bg-teal-100 border-teal-500 text-teal-900': g.grade === 2, 'bg-orange-100 border-orange-500 text-orange-700' : g.grade === 1, 'bg-red-100 border-red-400 text-red-700' : g.grade === 0 }">
+
+                            <ng-container *ngIf="g.grade === 0">
+                                <p class="font-bold">اجابة خاطئة</p>
+                            </ng-container>
+
+                            <ng-container *ngIf="g.grade === 1">
+                                <p class="font-bold">اقتربت من الاجابة الصحيحة</p>
+                            </ng-container>
+
+                            <ng-container *ngIf="g.grade === 2">
+                                <p class="font-bold">اجابة صحيحة</p>
+                            </ng-container>
+
+                            <ng-container *ngFor="let ca of corr_answers">
+                                <div *ngIf="ca.questionId === q.questionId">
+                                    <p>{{ca.answer}}</p>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </ng-container>
+                </ng-container>
+            </div>
+        </ng-container>
+
+        <div class="flex items-center justify-between mt-2">
+            <a (click)="resetGrades()" href="/"
+                class="text-white text-center bg-emerald-800/95 hover:bg-emerald-800/75 rounded-lg focus:ring-4 focus:outline-none focus:ring-emerald-800/60 text-base select-none cursor-pointer mt-2 px-8 py-4">ابدأ
+                الاختبار!</a>
+        </div>
+    </form>
+</div>

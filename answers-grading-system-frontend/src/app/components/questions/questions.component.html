@@ -1,0 +1,22 @@
+<div class="">
+    <p class="font-bold text-gray-900 text-2xl my-4">اختبر معلوماتك التاريخية عن المغرب
+        واستمتع بالتعلم.</p>
+    <form class="">
+        <ng-container *ngFor="let q of questions">
+            <div class="mb-4">
+                <label class="block text-gray-900 mb-2" for="question">
+                    <span class="font-extrabold">السؤال {{q.questionId}} : </span>{{q.question}}
+                </label>
+                <textarea
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800 leading-tight focus:outline-none focus:shadow-outline"
+                    id="question" (input)="onValueChange(q.questionId, $event)"></textarea>
+            </div>
+        </ng-container>
+
+        <div class="flex items-center justify-between mt-2">
+            <a routerLink="/grade" (click)="sendAnswers()"
+                class="text-white text-center bg-emerald-800/95 hover:bg-emerald-800/75 rounded-lg focus:ring-4 focus:outline-none focus:ring-emerald-800/60 text-base select-none cursor-pointer mt-2 px-8 py-4">ابدأ
+                الاختبار!</a>
+        </div>
+    </form>
+</div>
