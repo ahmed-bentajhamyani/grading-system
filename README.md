@@ -2,9 +2,9 @@
 	<img src="https://user-images.githubusercontent.com/101653735/202849820-dfeaabcf-4dd9-4452-a847-5a767462fd9d.png" >
 </p>
 
-# ML Project : Arabic Automated short answers grading system
+# Arabic Automated Short Answers Grading System
 
-Arabic Automated short answers grading system for **Moroccan history**, the idea behind this system is to give the adequate grade to the students according to their answers, the system should be in Arabic, and you should prepare your own dataset.
+Arabic Automated Short Answers Grading System for **Moroccan History**, the idea behind this system is to give the adequate grade to the students according to their answers, the system should be in Arabic, and you should prepare your own dataset.
 
 - Scraping data from several sources: Arabic websites, Datasets, books, etc.
 - Establishment of Arabic Natural language processing pipeline.
@@ -37,7 +37,7 @@ Arabic Automated short answers grading system for **Moroccan history**, the ide
 
 ### FastAPI
 
-For the backend we choose **FastAPI** framework ****because it’s fast to learn and to use.
+For the backend we choose **FastAPI** framework because it’s fast to learn and to use.
 
 <p align="center">
 	<img src="https://github.com/ahmed-bentajhamyani/answers-grading-system-application/assets/101653735/d54468fd-2ef0-42bf-bfe5-8afe5809d66e" >
@@ -97,7 +97,7 @@ websockets==11.0.3
 
 To send request from the frontend to backend we used **GraphQL** a query language for APIs and a runtime for fulfilling those queries with the existing data.
 
-We implemented it in our application with the library ************Strawberry.************ It’s a new **GraphQL** library for Python 3, inspired by dataclasses.
+We implemented it in our application with the library **Strawberry.** It’s a new **GraphQL** library for Python 3, inspired by dataclasses.
 
 <p align="center">
 	<img src="https://github.com/ahmed-bentajhamyani/answers-grading-system-application/assets/101653735/1f22922e-4d1c-45d4-b640-2f0a0c262875" >
@@ -156,7 +156,7 @@ docker-compose up
 
 ### Angular
 
-For the frontend we choose **Angular** and ************************TailwindCSS************************ framework.
+For the frontend we choose **Angular** and **TailwindCSS** framework.
 
 <p align="center">
 	<img src="https://github.com/ahmed-bentajhamyani/answers-grading-system-application/assets/101653735/928f4b48-d7cb-4085-817d-6b8c9925a92b" >
@@ -164,7 +164,7 @@ For the frontend we choose **Angular** and ************************TailwindCSS**
 
 ### GraphQL
 
-To use **************GraphQL************** in the client side we needed also to download a library called `apollo-angular` so we did using this command :
+To use **GraphQL** in the client side we needed also to download a library called `apollo-angular` so we did using this command :
 
 ```
 ng add apollo-angular
@@ -242,13 +242,6 @@ By clicking on the button **عرض النتيجة** the grades given by the mode
 <p align="center">
 	<img src="https://github.com/ahmed-bentajhamyani/answers-grading-system-application/assets/101653735/de0a49c4-c2b2-4598-bb8b-e1bfcc7bff54" >
 </p>
-
-
-## Class Diagram
-
-To provide all the dependencies, spring uses the `pom.xml` file, which allows a better management of these independences and helps to simplify the process of configuring and setting up a Spring-based application.
-
-To effectively convey the dynamic nature of our application, we created a general class diagram. This diagram represents the abstraction of the application’s functionality, allowing for a better understanding of the various interactions between classes. To organize NFTs, you can group them into collections and then categorize each collection. This allows you to interact with either individual NFTs or entire collection
 
 ## Creators
 
