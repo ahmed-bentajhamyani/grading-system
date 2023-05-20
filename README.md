@@ -9,32 +9,24 @@
 ## Table of contents
 [Class Diagram](#class-diagram)
 
-[Project Configuration](#project-configuration)
-* [Maven Project](#maven-project)
-* [Services](#services)
-* [Service Registry](#service-registry)
-* [Cloud Gateway](#cloud-gateway)
+[Backend of our Application](#backend-of-our-application)
+* [FastAPI](#fastapi)
+* [GraphQL](#graphql)
+* [Docker](#docker)
 
-[Smart Contracts](#smart-contracts)
-* [Testing Accounts](#testing-accounts)
-* [Smart Contract Deployment](#smart-contract-deployment)
+[Frontend of our Application](#frontend-of-our-application)
+* [Angular](#angular)
+* [GraphQL](#graphql)
+* [Docker](#docker)
 
 [Testing the Application](#testing-the-application)
 * [Home Page](#home-page)
-* [Connect Wallet](#connect-wallet)
-* [Update Account](#update-account)
-* [Create Collection](#create-collection)
-* [Create NFT](#create-nft)
-* [Edit NFT](#edit-nft)
-* [Buy NFT](#buy-nft)
-
-[DevOps : CI/CD](#devops--cicd)
-* [Angular Application](#angular-application)
-* [Spring Boot Application](#spring-boot-application)
+* [Question Page](#question-page)
+* [Result Page](#result-page)
 
 [Creators](#creators)
 
-## Backend of our application
+## Backend of our Application
 
 ### FastAPI
 
@@ -153,7 +145,7 @@ docker-compose up
 	<img width="784" alt="1" src="https://github.com/ahmed-bentajhamyani/answers-grading-system-application/assets/101653735/945ef6e1-eda8-4d27-90ea-21449c38d967">
 </p>
 
-## Frontend of our application
+## Frontend of our Application
 
 ### Angular
 
