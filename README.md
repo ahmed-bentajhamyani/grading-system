@@ -2,20 +2,9 @@
 	<img src="https://user-images.githubusercontent.com/101653735/202849820-dfeaabcf-4dd9-4452-a847-5a767462fd9d.png" >
 </p>
 
-# ML Project : Arabic Automated short answers grading system
+# **ML Project : Arabic Automated short answers grading system**
 
-Arabic Automated short answers grading system for **moroccan history**, the idea behind
-this system is to give the adequate grade to the students according to their answers, the system
-should be in Arabic, and you should prepare your own dataset.
-• Scraping data from several sources: Arabic websites, Datasets, books, etc.
-• Establishment of Arabic Natural language processing pipeline.
-• Word embedding and encoding.
-• Model Training based on classical machine learning algorithms.
-• Evaluation of the models then the choice of the best one
-• Model deployment and consumption via spa web application.
-
-**Tools :** NLTK, Word2vec, Glove ,Sklearn , fastapi , GraphQL  , angular , scrapy, Doker , kubernetes ,
-airflow , kibana, github.
+**Tools :** FastAPI, GraphQL, Angular, Tailwindcss, Docker, Github, Scrapy, NLTK, Word2Vec.
 
 ## Table of contents
 [Class Diagram](#class-diagram)
@@ -45,372 +34,156 @@ airflow , kibana, github.
 
 [Creators](#creators)
 
-## Class Diagram
+## Backend of our application
 
-To effectively convey the dynamic nature of our application, we created a general class diagram. This diagram represents the abstraction of the application's functionality, allowing for a better understanding of the various interactions between classes. To organize NFTs, you can group them into collections and then categorize each collection. This allows you to interact with either individual NFTs or entire collections.
+### FastAPI
+
+For the backend we choose **FastAPI** framework ****because it’s fast to learn and to use.
 
 <p align="center">
-	<img width="902" alt="Class Diagram II" src="https://user-images.githubusercontent.com/101653735/212502917-a0462fbb-849e-4e12-91ec-00fc6b6f8981.png">
+	<img src="https://github.com/ahmed-bentajhamyani/answers-grading-system-application/assets/101653735/d54468fd-2ef0-42bf-bfe5-8afe5809d66e" >
 </p>
 
-## Project Configuration
-
-### Maven Project
-
-To provide all the dependencies, spring uses the ```pom.xml``` file, which allows a better management of these independences and helps to simplify the process of configuring and setting up a Spring-based application.
-
-So this is the ```pom.xml``` file of the microservice-parent:
+First we create a virtual environment :
 
 ```
-<modelVersion>4.0.0</modelVersion>
-
-<parent>
-	<groupId>org.springframework.boot</groupId>
-	<artifactId>spring-boot-starter-parent</artifactId>
-	<version>3.0.1</version>
-	<relativePath/>
-</parent>
-
-<groupId>ma.fstt</groupId>
-<artifactId>microservices-parent</artifactId>
-<packaging>pom</packaging>
-<version>1.0-SNAPSHOT</version>
-<modules>
-	<module>category-service</module>
-	<module>collection-service</module>
-	<module>transaction-service</module>
-	<module>user-service</module>
-	<module>image-service</module>
-	<module>service-registry</module>
-	<module>cloud-gateway</module>
-	<module>cart-service</module>
-	<module>nft-service</module>
-</modules>
-
-<properties>
-	<maven.compiler.source>17</maven.compiler.source>
-	<maven.compiler.target>17</maven.compiler.target>
-	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	<spring-cloud.version>2022.0.0</spring-cloud.version>
-</properties>
-
-<dependencyManagement>
-	<dependencies>
-	    <dependency>
-		<groupId>org.springframework.cloud</groupId>
-		<artifactId>spring-cloud-dependencies</artifactId>
-		<version>${spring-cloud.version}</version>
-		<type>pom</type>
-		<scope>import</scope>
-	    </dependency>
-	</dependencies>
-</dependencyManagement>
+python -m venv venv
 ```
 
-### Services
-
-So our services uses several dependencies to function properly. The first dependency, **spring-boot-starter-data-mongodb**, allows for the integration of MongoDB as the application's database.
-
-The second dependency, **spring-boot-starter-web**, enables the application to handle HTTP requests and responses.
-
-The third dependency, **spring-cloud-starter-netflix-eureka-server**, is used to manage service registration and discovery manager.
-
-The fourth dependency, **lombok**, is a library that is used to minimize or remove the boilerplate code. It saves time and effort. Just by using the annotations, we can save space and readability of the source code.
-
-The last dependency, **spring-boot-starter-test**, is used for testing the application.
-
-Our application is based on a microservices architecture which  is an architectural style in which a large application is built as a collection of small and independent services that communicate with each other through lightweight APIs. This approach can be beneficial in many ways, such as:
-
-**Scalability** : Microservices can be scaled independently, which allows for more efficient use of resources.
-
-**Flexibility** : Because services are independent, it's easier to make changes or updates to a specific part of the application without affecting the whole system.
-
-**Resilience** : When a service fails, it doesn't bring the whole application down. Instead, the other services can continue to function.
-
-**Ease of deployment**: Microservices can be deployed and updated independently, which can make the deployment process faster and less risky.
+We have to activate the new virtual environment by executing the command :
 
 ```
-<parent>
-	<artifactId>microservices-parent</artifactId>
-	<groupId>ma.fstt</groupId>
-	<version>1.0-SNAPSHOT</version>
-</parent>
-<modelVersion>4.0.0</modelVersion>
-
-<artifactId>name-service</artifactId>
-
-<properties>
-	<maven.compiler.source>17</maven.compiler.source>
-	<maven.compiler.target>17</maven.compiler.target>
-	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-</properties>
-
-<dependencies>
-	<dependency>
-	    <groupId>org.springframework.boot</groupId>
-	    <artifactId>spring-boot-starter-data-mongodb</artifactId>
-	</dependency>
-	<dependency>
-	    <groupId>org.springframework.boot</groupId>
-	    <artifactId>spring-boot-starter-web</artifactId>
-	</dependency>
-	<dependency>
-	    <groupId>org.springframework.cloud</groupId>
-	    <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
-	</dependency>
-
-	<dependency>
-	    <groupId>org.projectlombok</groupId>
-	    <artifactId>lombok</artifactId>
-	    <optional>true</optional>
-	</dependency>
-	<dependency>
-	    <groupId>org.springframework.boot</groupId>
-	    <artifactId>spring-boot-starter-test</artifactId>
-	    <scope>test</scope>
-	</dependency>
-</dependencies>
+venv/Scripts/Activate.ps1
 ```
 
-### Service Registry
-
-We did implement a service registry, which is a database of services, their instances and their locations. Service instances are registered with the service registry on startup and deregistered on shutdown. So the ```pom.xml``` of our serivce-registry contains the following dependencies: 
-
+Concerning the python libraries we used, this is the `requirements.txt` file of our backend application :
 
 ```
-<dependency>
-    <groupId>org.springframework.cloud</groupId>
-    <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
-</dependency>
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-test</artifactId>
-    <scope>test</scope>
-</dependency>
+anyio==3.6.2
+click==8.1.3
+colorama==0.4.6
+fastapi==0.95.1
+gensim==4.3.1
+graphql-core==3.2.3
+h11==0.14.0
+httptools==0.5.0
+idna==3.4
+joblib==1.2.0
+nltk==3.8.1
+numpy==1.24.3
+pandas==2.0.1
+pydantic==1.10.7
+python-dateutil==2.8.2
+python-dotenv==1.0.0
+pytz==2023.3
+PyYAML==6.0
+regex==2023.5.5
+scikit-learn==1.2.2
+scipy==1.10.1
+six==1.16.0
+smart-open==6.3.0
+sniffio==1.3.0
+starlette==0.26.1
+strawberry-graphql==0.177.1
+threadpoolctl==3.1.0
+tqdm==4.65.0
+typing_extensions==4.5.0
+tzdata==2023.3
+uvicorn==0.22.0
+watchfiles==0.19.0
+websockets==11.0.3
 ```
 
-### Cloud Gateway
+### GraphQL
 
-A cloud gateway is designed to act as a single-entry point for defined back-end APIs and microservices (which can be both internal and external). This is the  ```pom.xml``` file of our cloud-gateway:
+To send request from the frontend to backend we used **GraphQL** a query language for APIs and a runtime for fulfilling those queries with the existing data.
 
+We implemented it in our application with the library ************Strawberry.************ It’s a new **GraphQL** library for Python 3, inspired by dataclasses.
+
+<p align="center">
+	<img src="https://github.com/ahmed-bentajhamyani/answers-grading-system-application/assets/101653735/1f22922e-4d1c-45d4-b640-2f0a0c262875" >
+</p>
+
+### Docker
+
+To build and run our application we used **Docker.**
+
+We create a `Dockerfile` and `docker-compose.yml` file.
+
+The `Dockerfile` contains the following code :
 
 ```
-<dependency>
-    <groupId>org.springframework.cloud</groupId>
-    <artifactId>spring-cloud-starter-gateway</artifactId>
-</dependency>
-<dependency>
-    <groupId>org.springframework.cloud</groupId>
-    <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-</dependency>
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-test</artifactId>
-    <scope>test</scope>
-</dependency>
+FROM python
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy the requirements file to the container
+COPY ./requirements.txt .
+
+# Install dependencies
+RUN pip install -r requirements.txt
+
+# Copy the rest of the project files to the container
+COPY . .
+
+# Expose the port that the application will be running on
+EXPOSE 8000
 ```
 
-And this is the ```application.yml``` file to specify our services and their paths:
+The `docker-compose.yml` contains the following code :
 
 ```
-server:
-  port: 9191
-
-spring:
-  application:
-    name: CLOUD-GATEWAY
-  cloud:
-    gateway:
-      default-filters:
-        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
-      globalcors:
-        corsConfigurations:
-          '[/**]':
-            allowedOrigins: "*"
-            allowedMethods: "*"
-            allowedHeaders: "*"
-      routes:
-        - id: TRANSATION-SERVICE
-          uri: lb://TRANSATION-SERVICE
-          predicates:
-            - Path=/api/transactions/**
-        - id: CART-SERVICE
-          uri: lb://CART-SERVICE
-          predicates:
-            - Path=/api/cart/**
-        - id: NFT-SERVICE
-          uri: lb://NFT-SERVICE
-          predicates:
-            - Path=/api/nfts/**
-        - id: USER-SERVICE
-          uri: lb://USER-SERVICE
-          predicates:
-            - Path=/api/users/**
-        - id: CATEGORY-SERVICE
-          uri: lb://CATEGORY-SERVICE
-          predicates:
-            - Path=/api/categories/**
-        - id: COLLECTION-SERVICE
-          uri: lb://COLLECTION-SERVICE
-          predicates:
-            - Path=/api/collections/**
-        - id: IMAGE-SERVICE
-          uri: lb://IMAGE-SERVICE
-          predicates:
-            - Path=/api/image/**
+version: '3.10'
+services:
+  app:
+    build: .
+    command: uvicorn main:app --host 0.0.0.0
+    ports:
+      - "8000:8000"
 ```
 
-## Smart Contracts
-
-### Testing Accounts
-
-As a tool for Ethereum development, Hardhat provides a number of features that make it easier to test, deploy and develop smart contracts on the Ethereum network. One of the main advantages of using Hardhat is its local development network feature. This allows developers to test their smart contracts on a local network, without incurring real-world gas costs or making transactions on the main Ethereum network.
-
-One of the key features of the local development network is the ability to use predefined accounts with a balance of 10000 ETH each. This allows developers to easily test their contracts without worrying about funding the accounts or paying for gas costs.
-
-<p align="center">
-  <img width="650" alt="II" src="https://user-images.githubusercontent.com/101653735/212501410-f63b7af4-9928-4cc3-b396-b5b119376152.png">
-</p>
-
-### Smart Contract Deployment
-
-<p align="center">
-  <img width="634" alt="I" src="https://user-images.githubusercontent.com/101653735/212501522-7e890f35-8fdb-46a3-a8d7-05cfbd467ead.png">
-</p>
-
-The deployment of our smart contract was completed successfully using the Hardhat manager. For each deployment, we have included information on the deployer and the contracts, including the gas price, the deployer's balance, the deployment price, and the contract address.
-
-<p align="center">
-  <img width="515" alt="III" src="https://user-images.githubusercontent.com/101653735/212501710-50b5fed8-f968-4819-a5c6-f7756563b376.png">
-</p>
-
-## Testing the Application
-
-### Home Page
-
-In the home page of our application you can just explore NFTs already created, connect your wallet, create collection, create NFT or buy one.
-
-<p align="center">
-  <img width="960" alt="2" src="https://user-images.githubusercontent.com/101653735/212497965-a31791c4-4792-40f3-a4e4-a61fe8a48f8c.png">
-</p>
-
-### Connect Wallet
-
-To authenticate in our marketplace you have to use your wallet
-
-<p align="center">
-  <img width="960" alt="2" src="https://user-images.githubusercontent.com/101653735/212498252-cc3fc98b-740b-4e41-8d67-a8b191875219.png">
-</p>
-
-When you authenticate with your wallet for the first time a new unnamed user will be created
-
-<p align="center">
-  <img width="960" alt="2" src="https://user-images.githubusercontent.com/101653735/212498356-47ed064c-a3c5-44f1-b422-aac82fd4259f.png">
-</p>
-
-### Update Account
-
-So if you want to give your account a name or change the profile picture you can click the ellipsis button and tap settings.
-
-<p align="center">
-  <img width="960" alt="2" src="https://user-images.githubusercontent.com/101653735/212498542-d91e7566-6875-4b26-85ff-18676d98827c.png">
-</p>
-
-And when you finish click **submit changes**.
-
-<p align="center">
-  <img width="960" alt="2" src="https://user-images.githubusercontent.com/101653735/212498576-e07aadb7-bd54-45a9-acd5-e2f2fdf28912.png">
-</p>
-
-As you see the update applied on the database as well.
-
-<p align="center">
-  <img width="755" alt="4 IV" src="https://user-images.githubusercontent.com/101653735/212502455-83dbbffc-22e0-4f46-9a0e-e4d96dbfed15.png">
-</p>
-
-### Create Collection
-
-To create a collection you have to click the link in the navbar **create** and choose **collection**.
-
-<p align="center">
-  <img width="960" alt="2" src="https://user-images.githubusercontent.com/101653735/212498909-541481d8-3daf-459d-83f0-80ef677e5579.png">
-</p>
-
-The collection created successfully.
-
-<p align="center">
-  <img width="960" alt="2" src="https://user-images.githubusercontent.com/101653735/212499164-18b307d8-6e7a-43f6-a64b-04ecc6257e1b.png">
-</p>
-
-And also a new document of the collection has created in our NoSQL database.
-
-<p align="center">
-  <img width="753" alt="8 II" src="https://user-images.githubusercontent.com/101653735/212502398-abd833e8-f5cf-4e21-9cfd-d84470d003d5.png">
-</p>
-
-### Create NFT
-
-<p align="center">
-  <img width="960" alt="2" src="https://user-images.githubusercontent.com/101653735/212499377-57345e56-91d4-4ce1-811d-ac5969893c5b.png">
-</p>
-
-The user need to confirm the transaction before send it to the Blockchain.
-
-<p align="center">
-  <img width="960" alt="9 II" src="https://user-images.githubusercontent.com/101653735/212499506-9c422a43-3d30-4b5b-aa0d-b1d1d171be4a.png">
-</p>
-
-Our NFT is created successfully.
-
-<p align="center">
-  <img width="960" alt="9 III" src="https://user-images.githubusercontent.com/101653735/212499872-229627ba-94b7-4898-bacb-61c96a25d8ef.png">
-</p>
-
-The transaction is added to the blockchain, and the hardhat tool provides information about it, which allows us to know the NFT created from whom to whom, and the  gas used.
-
-<p align="center">
-  <img width="562" alt="9 IV" src="https://user-images.githubusercontent.com/101653735/212499929-c85fd98f-4f54-403b-bf73-b95e4f8a0f84.png">
-</p>
-
-### Edit NFT
-
-After you create your NFT, always there is the possibility to edit it, often to decrease the price, it allows for flexibility in the buying and selling process for both the creator and potential buyers. This can help to boost the liquidity of the marketplace.
-
-<p align="center">
-  <img width="562" alt="9 IV" src="https://user-images.githubusercontent.com/101653735/212502850-2ed2b92a-faf2-4d70-94a3-effa510aae45.png">
-</p>
-
-### Buy NFT
-
-When exploring the marketplace, users can choose a collection and view its details, such as the NFTs it contains. They can also view information about the creator of the collection, as well as the total number of NFTs in the collection.
-
-<p align="center">
-	<img width="562" alt="9 IV" src="https://user-images.githubusercontent.com/101653735/212501833-7b55d89f-99ab-4e2b-a7b6-a0b6015a8e1b.png">
-</p>
-
-When a user chooses a NFT, he can better view it by examining the details and characteristics of the digital item. If interested, he can also choose to add it to its shopping cart for later purchase. This allows the user to review different options before making a purchasing decision.
-
-<p align="center">
-	<img width="562" alt="9 IV" src="https://user-images.githubusercontent.com/101653735/212501844-48c31c2f-3cf5-4d9e-a7bb-550accf14518.png">
-</p>
-
-When the user clicks on the cart icon, a new screen will appear displaying a list of all the items that have been  added to the cart plus a button for deleting items. The items are listed with their name, quantity, and price, making it easy for the user to review their selections. Additionally, the user can also modify the quantity of an item or remove it from the cart if they no longer wish to purchase it. This feature is designed to provide a more convenient and user-friendly shopping experience for our customers
-
-<p align="center">
-	<img width="562" alt="9 IV" src="https://user-images.githubusercontent.com/101653735/212501885-537c7303-2721-46df-bee8-51a6c2d38e39.png">
-</p>
-
-## DevOps : CI/CD
-
-### Angular Application
-
-#### Docker
-
-To create an image in docker and run it as a container we add this ```Dockerfile``` file in our application:
+To build and run the application in **************Docker************** we used the following command :
 
 ```
-# First stage
-FROM node:latest as build
+docker-compose up
+```
+
+<p align="center">
+	<img width="784" alt="1" src="https://github.com/ahmed-bentajhamyani/answers-grading-system-application/assets/101653735/945ef6e1-eda8-4d27-90ea-21449c38d967">
+</p>
+
+## Frontend of our application
+
+### Angular
+
+For the frontend we choose **Angular** and ************************TailwindCSS************************ framework.
+
+<p align="center">
+	<img src="https://github.com/ahmed-bentajhamyani/answers-grading-system-application/assets/101653735/928f4b48-d7cb-4085-817d-6b8c9925a92b" >
+</p>
+
+### GraphQL
+
+To use **************GraphQL************** in the client side we needed also to download a library called `apollo-angular` so we did using this command :
+
+```
+ng add apollo-angular
+```
+
+ We needed to set the URL of our GraphQL Server in the `src/app/graphql.module.ts` file :
+
+```
+const uri = 'http://localhost:8000'; // <-- the URL of our GraphQL server
+```
+
+### Docker
+
+To build and run our frontend application we created a `Dockerfile` containing the following code :
+
+```
+# Build stage
+FROM node:18.13.0-alpine as build
 RUN mkdir -p /app
 
 WORKDIR /app
@@ -419,300 +192,66 @@ COPY package.json /app/
 RUN npm install
 
 COPY . /app/
-RUN npm run build
+RUN npm run build --prod
 
-# Second stage
-FROM nginx:latest
-COPY --from=build /app/dist/nftmarketplace-frontend /usr/share/nginx/html
+# Prod stage
+FROM nginx:alpine
+COPY --from=build /app/dist/answers-grading-system-frontend /usr/share/nginx/html
 ```
 
-We create the image with the command ```docker build -t nftmarketplace-angular-app .```
-
-<p align="center">
-	<img width="779" alt="Docker Angular" src="https://user-images.githubusercontent.com/101653735/212503208-67f18474-b81d-4304-871c-6793b518b152.png">
-</p>
-
-Run the image we just create as a container with the command ```docker run -d --name nftmarketplace-angular nftmarketplace-angular-app```
-
-<p align="center">
-	<img width="776" alt="4" src="https://user-images.githubusercontent.com/101653735/212503453-6df08148-0faa-4907-af70-d3cb3274db2d.png">
-</p>
-
-#### Jenkins
-
-In order to deploy our angular application in jenkins we create a **Freestyle project** and choose in general configuration a Github project and we give the url of our github project
-
-<p align="center">
-	<img width="665" alt="1" src="https://user-images.githubusercontent.com/101653735/212529481-18e27b71-208a-4842-bc99-aa7461f69128.png">
-</p>
-
-In the Source Code Management section we give our repository url and because our reposifory is private we needed to create a github deploy key for jenkins.
-
-<p align="center">
-	<img width="659" alt="2" src="https://user-images.githubusercontent.com/101653735/212529677-269fdc14-5e25-4ed7-98c2-b902fd05735e.png">
-</p>
-
-In the Build Triggers section we told jenkins to build the project everytime we push a commit.
-
-<p align="center">
-	<img width="656" alt="3" src="https://user-images.githubusercontent.com/101653735/212529742-d3a01701-9840-4624-9341-18d68af3b23b.png">
-</p>
-
-And the final configuration section is to specify the build steps.
-
-<p align="center">
-	<img width="647" alt="4" src="https://user-images.githubusercontent.com/101653735/212529782-c0270065-0112-4953-b6f1-f149bc5df77d.png">
-</p>
-
-
-Our project is built successfully.
-
-<p align="center">
-	<img width="656" alt="6" src="https://user-images.githubusercontent.com/101653735/212537526-788a7edb-f5aa-47a3-bd57-a382e44e2c0b.png">
-</p>
-
-This is a dashboard of the last success, failure and duration of our projects
-
-<p align="center">
-	<img width="656" alt="6" src="https://user-images.githubusercontent.com/101653735/212529915-b0fd9752-d725-4199-8dcd-acb07da7f25d.png">
-</p>
-
-### Spring Boot Application
-
-#### Docker
-
-To create the docker image we added a ```Dockerfile``` in our cloud-gateway.
+To build the application in **Docker** we use the following command :
 
 ```
-FROM openjdk:17
-
-COPY target/*.jar app.jar
-
-ENTRYPOINT ["java","-jar","/app.jar"]
+docker build --tag answers-grading-system-frontend .
 ```
-
-Now we build our image using the command **docker build -t nftmarketplace-cloudgateway .**
 
 <p align="center">
-	<img width="924" alt="1" src="https://user-images.githubusercontent.com/101653735/212531268-ee46d4c1-c9d2-4c42-af39-45fc26d500f7.png">
+	<img src="https://github.com/ahmed-bentajhamyani/answers-grading-system-application/assets/101653735/b25dfdbf-2cc8-4ad5-a154-da48f5682c50">
 </p>
 
-One of the drawbacks we can think about this ```Dockerfile``` approach is no matter small changes we did in our API project like if we update one dependency in ```pom.xml``` this ```Dockerfile``` will build the whole image again so we will use the docker multi stage builds and we create another docker file ```Dockerfile-layered```
+To run it we used :
 
 ```
-FROM eclipse-temurin:17.0.4.1_1-jre as builder
-WORKDIR extracted
-ADD target/*.jar app.jar
-RUN java -Djarmode=layertools -jar app.jar extract
-
-FROM eclipse-temurin:17.0.4.1_1-jre
-WORKDIR application
-COPY --from=builder extracted/dependencies/ ./
-COPY --from=builder extracted/spring-boot-loader/ ./
-COPY --from=builder extracted/snapshot-dependencies/ ./
-COPY --from=builder extracted/application/ ./
-EXPOSE 8080
-ENTRYPOINT ["java", "org.springframework.boot.loader.JarLauncher"]
+docker run -d -p 4200:80 --name answers-grading-system-frontend answers-grading-system-frontend
 ```
-
-Let's build the second image using the command **docker build -t nftmarkeplace-cloudgateway-layered -f Dockerfile-layered .**
 
 <p align="center">
-	<img width="925" alt="2" src="https://user-images.githubusercontent.com/101653735/212531381-32a0d654-b9fa-4e3c-a8c3-ffa719813b18.png">
+	<img src="https://github.com/ahmed-bentajhamyani/answers-grading-system-application/assets/101653735/863902ae-ae4e-41b9-a757-80468e01fb14">
 </p>
 
-We can check if our images are built successfully with the command **docker images**
+## Testing the Application
+
+### Home Page
 
 <p align="center">
-	<img width="925" alt="2 " src="https://user-images.githubusercontent.com/101653735/212531414-a6f09ae8-8b3e-4913-8f77-a3c07fb2e405.png">
+	<img src="https://github.com/ahmed-bentajhamyani/answers-grading-system-application/assets/101653735/addc9069-e54d-430c-886c-1b4457fcdd68" >
 </p>
 
-In the microservices we add ```application-docker.properties```.
+### Question Page
 
-```
-spring.data.mongodb.host=mongo
-spring.data.mongodb.port=27017
-spring.data.mongodb.database= nftmarketplace
-
-server.port=9191
-spring.zipkin.base-url=http://zipkin:9411
-
-eureka.client.register-with-eureka=true
-eureka.client.fetch-registry=true
-eureka.client.serviceUrl.defaultZone=http://service-registry:8761/eureka
-```
-
-Because the service-registry doesn't have a database we add the following ```application-docker.properties```.
-
-```
-server.port=9191
-spring.zipkin.base-url=http://zipkin:9411
-```
-
-To create the other images we used a librairy called Jib from google which is mainly used to build containers from java application without using the docker file. We add the plugin in the ```pom.xml``` of  our microservices-parent.
-
- ```
-<plugin>
-	<groupId>com.google.cloud.tools</groupId>
-	<artifactId>jib-maven-plugin</artifactId>
-	<version>3.2.1</version>
-	<configuration>
-	    <from>
-		<image>eclipse-temurin:17.0.4.1_1-jre</image>
-	    </from>
-	    <to>
-		<image>registry-1.docker.io/ahmedbentaj/${project.artifactId}</image>
-	    </to>
-	</configuration>
-</plugin>
- ```
- 
- We used this command **mvn clean compile jib:build** to build the docker image and push it to DockerHub.
- 
- <p align="center">
-	<img width="920" alt="3" src="https://user-images.githubusercontent.com/101653735/212531786-b2cfd2ce-8574-4a3e-a201-ca833cd21ffa.png">
-</p>
-
-The images of our services are built successfully.
+By clicking on the button **ابدأ الاختبار** the test will begin :
 
 <p align="center">
-	<img width="917" alt="4" src="https://user-images.githubusercontent.com/101653735/212531826-7a322b35-ebf6-4415-8d3f-a90fd3dd0794.png">
+	<img src="https://github.com/ahmed-bentajhamyani/answers-grading-system-application/assets/101653735/e1245bcb-83b7-4bf6-bd7a-cb51f93ac28d" >
 </p>
 
-And the final step is to run all this docker containers, and to do so we will create a ```docker-compose.yml``` in the microservice-parent.
 
-```
-version: '3.7'
-services:
-  ## Mongo Docker Compose Config
-  mongo:
-    container_name: mongo
-    image: mongo:4.4.14-rc0-focal
-    restart: always
-    ports:
-      - "27017:27017"
-    expose:
-      - "27017"
-    volumes:
-      - ./mongo-data:/data/db
+### Result Page
 
-  ## Zipkin
-  zipkin:
-    image: openzipkin/zipkin
-    container_name: zipkin
-    ports:
-      - "9411:9411"
-
-  ## Eureka Server
-  service-registry:
-    image: ahmedbentaj/service-registry:latest
-    container_name: service-registry
-    ports:
-      - "8761:8761"
-    environment:
-      - SPRING_PROFILES_ACTIVE=docker
-    depends_on:
-      - zipkin
-
-  cloud-gateway:
-    image: ahmedbentaj/cloud-geteway:latest
-    container_name: cloud-gateway
-    ports:
-      - "9191:9191"
-    expose:
-      - "9191"
-    environment:
-      - SPRING_PROFILES_ACTIVE=docker
-    depends_on:
-      - zipkin
-      - service-registry
-
-  ## category-Service Docker Compose Config
-  category-service:
-    container_name: category-service
-    image: ahmedbentaj/category-service:latest
-    environment:
-      - SPRING_PROFILES_ACTIVE=docker
-    depends_on:
-      - mongo
-      - service-registry
-      - cloud-gateway
-
-  ## collecttion-Service Docker Compose Config
-  collection-service:
-    container_name: collection-service
-    image: ahmedbentaj/collection-service:latest
-    environment:
-      - SPRING_PROFILES_ACTIVE=docker
-    depends_on:
-      - mongo
-      - service-registry
-      - cloud-gateway
-
-  ## nft-Service Docker Compose Config
-  nft-service:
-    container_name: nft-service
-    image: ahmedbentaj/nft-service:latest
-    environment:
-      - SPRING_PROFILES_ACTIVE=docker
-    depends_on:
-      - mongo
-      - service-registry
-      - cloud-gateway
-
-  ## image-Service Docker Compose Config
-  image-service:
-    container_name: image-service
-    image: ahmedbentaj/image-service:latest
-    environment:
-      - SPRING_PROFILES_ACTIVE=docker
-    depends_on:
-      - mongo
-      - service-registry
-      - cloud-gateway
-
-  ## user-Service Docker Compose Config
-  user-service:
-    container_name: user-service
-    image: ahmedbentaj/user-service:latest
-    environment:
-      - SPRING_PROFILES_ACTIVE=docker
-    depends_on:
-      - mongo
-      - service-registry
-      - cloud-gateway
-
-  ## cart-Service Docker Compose Config
-  cart-service:
-    container_name: cart-service
-    image: ahmedbentaj/cart-service:latest
-    environment:
-      - SPRING_PROFILES_ACTIVE=docker
-    depends_on:
-      - mongo
-      - service-registry
-      - cloud-gateway
-
-  ## transaction-Service Docker Compose Config
-  transaction-service:
-    container_name: transaction-service
-    image: ahmedbentaj/transaction-service:latest
-    environment:
-      - SPRING_PROFILES_ACTIVE=docker
-    depends_on:
-      - mongo
-      - service-registry
-      - cloud-gateway
-```
-
-And we type the command **docker compose up -d**, as you can see all our services are strated successfully.
+By clicking on the button **عرض النتيجة** the grades given by the models we trained will showed with the correct answers :
 
 <p align="center">
-	<img width="920" alt="5" src="https://user-images.githubusercontent.com/101653735/212532025-ee4402d8-369e-407b-9852-c384b9fa9e75.png">
+	<img src="https://github.com/ahmed-bentajhamyani/answers-grading-system-application/assets/101653735/de0a49c4-c2b2-4598-bb8b-e1bfcc7bff54" >
 </p>
+
+
+## Class Diagram
+
+To provide all the dependencies, spring uses the `pom.xml` file, which allows a better management of these independences and helps to simplify the process of configuring and setting up a Spring-based application.
+
+To effectively convey the dynamic nature of our application, we created a general class diagram. This diagram represents the abstraction of the application’s functionality, allowing for a better understanding of the various interactions between classes. To organize NFTs, you can group them into collections and then categorize each collection. This allows you to interact with either individual NFTs or entire collection
 
 ## Creators
 
-* <a href="https://github.com/ahmed-bentajhamyani">BENTAJ HAMYANI Ahmed</a>
-
-* <a href="https://github.com/FouadElMetioui">EL METIOUI Fouad</a>
+- [BENTAJ HAMYANI Ahmed](https://github.com/ahmed-bentajhamyani)
+- [EL METIOUI Fouad](https://github.com/FouadElMetioui)
