@@ -2,16 +2,20 @@
 	<img src="https://user-images.githubusercontent.com/101653735/202849820-dfeaabcf-4dd9-4452-a847-5a767462fd9d.png" >
 </p>
 
-# NFT Marketplace As Single Page Application
+# ML Project : Arabic Automated short answers grading system
 
-In this project we developed a **web based DApp** NFTs Marketplace, in which the transactions are done through crypto currencies **Ethereum, Bitcoin, etc...**, and the user.
-* Authenticates through an Ethereum wallet.
-* Can sell NFTs.
-* Proceed with NFTs Minting.
+Arabic Automated short answers grading system for **moroccan history**, the idea behind
+this system is to give the adequate grade to the students according to their answers, the system
+should be in Arabic, and you should prepare your own dataset.
+• Scraping data from several sources: Arabic websites, Datasets, books, etc.
+• Establishment of Arabic Natural language processing pipeline.
+• Word embedding and encoding.
+• Model Training based on classical machine learning algorithms.
+• Evaluation of the models then the choice of the best one
+• Model deployment and consumption via spa web application.
 
-The Marketplace based on hybrid architecture a NoSQL database **MongoDB** to stock general information whereas NFTs transactions are managed by **Smart Contracts**.
-
-**Tools :** Spring Boot, Microservices, Angular, MongoDB, Solidity , Ether.js, Hardhat, MetaMask, Devops : CI/CD, Docker, Github, Jenkins.
+**Tools :** NLTK, Word2vec, Glove ,Sklearn , fastapi , GraphQL  , angular , scrapy, Doker , kubernetes ,
+airflow , kibana, github.
 
 ## Table of contents
 [Class Diagram](#class-diagram)
