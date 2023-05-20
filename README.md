@@ -7,8 +7,6 @@
 **Tools :** FastAPI, GraphQL, Angular, Tailwindcss, Docker, Github, Scrapy, NLTK, Word2Vec.
 
 ## Table of contents
-[Class Diagram](#class-diagram)
-
 [Backend of our Application](#backend-of-our-application)
 * [FastAPI](#fastapi)
 * [GraphQL](#graphql)
