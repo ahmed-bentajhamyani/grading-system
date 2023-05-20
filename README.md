@@ -2,7 +2,16 @@
 	<img src="https://user-images.githubusercontent.com/101653735/202849820-dfeaabcf-4dd9-4452-a847-5a767462fd9d.png" >
 </p>
 
-# **ML Project : Arabic Automated short answers grading system**
+# ML Project : Arabic Automated short answers grading system
+
+Arabic Automated short answers grading system for **Moroccan history**, the idea behind this system is to give the adequate grade to the students according to their answers, the system should be in Arabic, and you should prepare your own dataset.
+
+- Scraping data from several sources: Arabic websites, Datasets, books, etc.
+- Establishment of Arabic Natural language processing pipeline.
+- Word embedding and encoding.
+- Model Training based on classical machine learning algorithms.
+- Evaluation of the models then the choice of the best one
+- Model deployment and consumption via spa web application.
 
 **Tools :** FastAPI, GraphQL, Angular, Tailwindcss, Docker, Github, Scrapy, NLTK, Word2Vec.
 
