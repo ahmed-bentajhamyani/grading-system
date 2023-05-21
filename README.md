@@ -80,7 +80,7 @@ Google Forms
 [Moroccan History II](https://docs.google.com/forms/d/1ySQAQuFEVwdFJiWLnHFzaAP741XazPk3pj-_EYTqIG8)
 
 <p align="center">
-[image](https://github.com/ahmed-bentajhamyani/answers-grading-system-application/assets/91638100/10d886bc-a1fe-4373-b6df-54207ea0e8a1)
+<img src="https://github.com/ahmed-bentajhamyani/answers-grading-system-application/assets/91638100/10d886bc-a1fe-4373-b6df-54207ea0e8a1" >
 </p>
 
 ## Establishment of Arabic Natural Language Processing Pipeline
@@ -88,7 +88,7 @@ Google Forms
 **Pipeline** refers to a sequence of steps or processes that are applied successively to solve a specific problem. A machine learning pipeline is a series of operations that enable data processing, model training, and prediction on new data.
 
 <p align="center">
-[image](https://github.com/ahmed-bentajhamyani/answers-grading-system-application/assets/91638100/22f4c1b6-64a7-4f74-adca-073e12ba85a1)
+<img src="https://github.com/ahmed-bentajhamyani/answers-grading-system-application/assets/91638100/22f4c1b6-64a7-4f74-adca-073e12ba85a1" >
 </p>
 
 In our project, we approached each question as an individual model, treating them as separate entities. This approach allowed us to focus on the specific requirements and characteristics of each question and develop tailored solutions accordingly. I will now outline the process we followed for Question 1, which was repeated for the other questions as well.
@@ -98,23 +98,23 @@ In our project, we approached each question as an individual model, treating the
 ### Loading Data
 
 <p align="center">
-[image](https://github.com/ahmed-bentajhamyani/answers-grading-system-application/assets/91638100/c47cc30a-3497-4106-9daa-06d0eeacdd5e)
+<img src="https://github.com/ahmed-bentajhamyani/answers-grading-system-application/assets/91638100/c47cc30a-3497-4106-9daa-06d0eeacdd5e" >
 </p>
 
 ### Characteristics Of Dataset
 
 <p align="center">
-[image](https://github.com/ahmed-bentajhamyani/answers-grading-system-application/assets/91638100/2b505fed-6062-4fbe-962a-85af6c6a6aa1)
+<img src="https://github.com/ahmed-bentajhamyani/answers-grading-system-application/assets/91638100/2b505fed-6062-4fbe-962a-85af6c6a6aa1" >
 </p>
 
 <p align="center">
-[image](https://github.com/ahmed-bentajhamyani/answers-grading-system-application/assets/91638100/0750327f-ef09-44df-991e-d342d5a07b38)
+<img src="https://github.com/ahmed-bentajhamyani/answers-grading-system-application/assets/91638100/0750327f-ef09-44df-991e-d342d5a07b38" >
 </p>
 
 dataset is balanced
 
 <p align="center">
-[image](https://github.com/ahmed-bentajhamyani/answers-grading-system-application/assets/91638100/90f74db8-5192-495a-b78c-067d8cd70d78)
+<img src="https://github.com/ahmed-bentajhamyani/answers-grading-system-application/assets/91638100/90f74db8-5192-495a-b78c-067d8cd70d78" >
 </p>
 
 ### Data Cleaning
@@ -122,7 +122,7 @@ dataset is balanced
 For data cleaning, we performed two essential tasks to ensure better performance for our model: removing duplicate values and handling null values.
 
 <p align="center">
-[image](https://github.com/ahmed-bentajhamyani/answers-grading-system-application/assets/91638100/79b41f53-fa69-4e71-8887-159777c9097f)
+<img src="https://github.com/ahmed-bentajhamyani/answers-grading-system-application/assets/91638100/79b41f53-fa69-4e71-8887-159777c9097f" >
 </p>
 
 ## Data Pre-Preprocessing
@@ -154,7 +154,7 @@ model_word2vec = Word2Vec(df['tokens'], vector_size=100, window=5, min_count=1, 
 the result was 
 
 <p align="center">
-[image](https://github.com/ahmed-bentajhamyani/answers-grading-system-application/assets/91638100/ecd3f85f-d907-4d3a-a66d-7b6b4b9db149)
+<img src="https://github.com/ahmed-bentajhamyani/answers-grading-system-application/assets/91638100/ecd3f85f-d907-4d3a-a66d-7b6b4b9db149" >
 </p>
 
 ### Split Data
@@ -281,7 +281,7 @@ To select the best model, I relied on **accuracy** as a performance metric. Howe
 ### Testing Models
 
 <p align="center">
-[image](https://github.com/ahmed-bentajhamyani/answers-grading-system-application/assets/91638100/b8e88474-3def-4602-86d4-a8bd0e6b0d07)
+<img src="https://github.com/ahmed-bentajhamyani/answers-grading-system-application/assets/91638100/b8e88474-3def-4602-86d4-a8bd0e6b0d07" >
 </p>
 
 ### Saving The Best Model
@@ -302,7 +302,7 @@ with open(model_path, "rb") as file:
 ```
 
 <p align="center">
-[image](https://github.com/ahmed-bentajhamyani/answers-grading-system-application/assets/91638100/860224d4-1885-4e12-9715-1f2307e69633)
+<img src="https://github.com/ahmed-bentajhamyani/answers-grading-system-application/assets/91638100/860224d4-1885-4e12-9715-1f2307e69633" >
 </p>
 
 ## Backend of our Application
