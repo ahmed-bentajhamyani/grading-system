@@ -60,7 +60,7 @@ By involving high school students in our data collection process, we aimed to ga
 
 Our data collection efforts yielded the following results for each question:
 
-- First question: We successfully collected 140 responses.
+- First question: We successfully collected 200 responses.
 - Second question: We received 90 responses.
 - Third question: We obtained 90 responses.
 - Fourth question: We gathered 70 responses.
