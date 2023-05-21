@@ -91,11 +91,11 @@ In our project, we approached each question as an individual model, treating the
 
 ### Exploratory data analysis
 
-### Loading data
+### Loading Data
 
 ![image](https://github.com/ahmed-bentajhamyani/answers-grading-system-application/assets/91638100/c47cc30a-3497-4106-9daa-06d0eeacdd5e)
 
-### characteristics of dataset
+### Characteristics Of Dataset
 
 ![image](https://github.com/ahmed-bentajhamyani/answers-grading-system-application/assets/91638100/2b505fed-6062-4fbe-962a-85af6c6a6aa1)
 
@@ -141,7 +141,7 @@ the result was
 
 ![image](https://github.com/ahmed-bentajhamyani/answers-grading-system-application/assets/91638100/ecd3f85f-d907-4d3a-a66d-7b6b4b9db149)
 
-### split data
+### Split Data
 
 To split the data for training and testing purposes, considering our relatively small dataset, we allocated 15% of the data for testing and the remaining portion for training the model.
 
@@ -150,7 +150,7 @@ train_data = df.sample(frac=0.85, random_state=42)
 test_data = df.drop(train_data.index)
 ```
 
-## building Models
+## Building Models
 
 For the training phase, I employed multiple machine learning models to determine the best-performing one. The models I utilized for classification included Random Forest, SVM with a linear kernel, SVM with an RBF kernel, K-Nearest Neighbors (KNN), Naive Bayes, Decision Tree, Artificial Neural Network, and ensemble learning with bagging.
 
@@ -266,7 +266,7 @@ To select the best model, I relied on **accuracy** as a performance metric. Howe
 
 ![image](https://github.com/ahmed-bentajhamyani/answers-grading-system-application/assets/91638100/b8e88474-3def-4602-86d4-a8bd0e6b0d07)
 
-### saving the best model
+### Saving The Best Model
 
 To save the best model, I utilized [The pickle library](https://docs.python.org/3/library/pickle.html) . The pickle library in Python provides a straightforward way to serialize and store Python objects, including machine learning models, as binary files. By using pickle, I was able to save the trained model to disk for later use without having to retrain it from scratch.
 
