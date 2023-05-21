@@ -34,13 +34,13 @@ Arabic Automated Short Answers Grading System for **Moroccan History**, the ide
 
 [Backend of our Application](#backend-of-our-application)
 * [FastAPI](#fastapi)
-* [GraphQL](#graphql)
-* [Docker](#docker)
+* [GraphQL Server Side](#graphql-server-side)
+* [Docker Server Side](#docker-server-side)
 
 [Frontend of our Application](#frontend-of-our-application)
 * [Angular](#angular)
-* [GraphQL](#graphql)
-* [Docker](#docker)
+* [GraphQL Client Side](#graphql-client-side)
+* [Docker Client Side](#docker-client-side)
 
 [Testing the Application](#testing-the-application)
 * [Home Page](#home-page)
@@ -365,7 +365,7 @@ watchfiles==0.19.0
 websockets==11.0.3
 ```
 
-### GraphQL
+### GraphQL Server Side
 
 To send request from the frontend to backend we used **GraphQL** a query language for APIs and a runtime for fulfilling those queries with the existing data.
 
@@ -375,7 +375,7 @@ We implemented it in our application with the library **Strawberry.** It’s a n
 	<img src="https://github.com/ahmed-bentajhamyani/answers-grading-system-application/assets/101653735/1f22922e-4d1c-45d4-b640-2f0a0c262875" >
 </p>
 
-### Docker
+### Docker Server Side
 
 To build and run our application we used **Docker.**
 
@@ -434,7 +434,7 @@ For the frontend we choose **Angular** and **TailwindCSS** framework.
 	<img src="https://github.com/ahmed-bentajhamyani/answers-grading-system-application/assets/101653735/928f4b48-d7cb-4085-817d-6b8c9925a92b" >
 </p>
 
-### GraphQL
+### GraphQL Client Side
 
 To use **GraphQL** in the client side we needed also to download a library called `apollo-angular` so we did using this command :
 
@@ -448,7 +448,7 @@ ng add apollo-angular
 const uri = 'http://localhost:8000'; // <-- the URL of our GraphQL server
 ```
 
-### Docker
+### Docker Client Side
 
 To build and run our frontend application we created a `Dockerfile` containing the following code :
 
