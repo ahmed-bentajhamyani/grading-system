@@ -16,6 +16,22 @@ Arabic Automated Short Answers Grading System for **Moroccan History**, the ide
 **Tools :** FastAPI, GraphQL, Angular, Tailwindcss, Docker, Github, Scrapy, NLTK, Word2Vec.
 
 ## Table of contents
+[Scraping data](#scraping-data)
+
+[Establishment of Arabic Natural language processing pipeline](#establishment-of-arabic-natural-language-processing-pipeline)
+
+[Exploratory data analysis (EDA)](#exploratory-data-analysis)
+* [loading data](#loading-data)
+* [characteristics of dataset](#characteristics-of-dataset)
+* [Data Cleaning](#data-cleaning)
+
+[Data Pre-Preprocessing](#data-pre-preprocessing)
+* [split data](#split-data)
+
+[building Models](#building-models)
+* [Testing  Models](#testing-models)
+* [saving the best model](#saving-the-best-model)
+
 [Backend of our Application](#backend-of-our-application)
 * [FastAPI](#fastapi)
 * [GraphQL](#graphql)
@@ -31,7 +47,244 @@ Arabic Automated Short Answers Grading System for **Moroccan History**, the ide
 * [Question Page](#question-page)
 * [Result Page](#result-page)
 
+
 [Creators](#creators)
+
+## Scraping data
+
+In our project, one of the most challenging tasks we encountered was the **collection of training data** for our machine learning models. Gathering a sufficient amount of high-quality data was crucial for the success of our project. 
+
+To address this challenge, we devised a strategy that involved creating two **Google Forms** and distributing them to high school students. We carefully designed the forms to elicit specific responses to ten questions related to our project objectives.
+
+By involving high school students in our data collection process, we aimed to gather diverse perspectives and insights. We believed that their input would contribute to the development of robust and inclusive machine learning models. To ensure a balanced dataset, we made efforts to augment the data ourselves by including multiple responses.
+
+Our data collection efforts yielded the following results for each question:
+
+- First question: We successfully collected 140 responses.
+- Second question: We received 90 responses.
+- Third question: We obtained 90 responses.
+- Fourth question: We gathered 70 responses.
+- Fifth question: We accumulated 135 responses.
+- Sixth question: We obtained 140 responses.
+- Seventh question: We received 100 responses.
+- Eighth question: We gathered 90 responses.
+- Ninth question: We obtained 100 responses.
+- Tenth question: We accumulated 103 responses.
+
+These numbers demonstrate the substantial effort we put into gathering a diverse and representative dataset for training our machine learning models. By collecting a significant number of responses for each question, we aimed to ensure that our models would be able to generalize well and handle a wide range of scenarios.
+
+Google Forms 
+
+[Moroccan History I](https://docs.google.com/forms/d/1sHBFL16lalIL0x4xjwy-BtyyUn5SxL-7Fn_9zsHeDkQ)
+
+[Moroccan History II](https://docs.google.com/forms/d/1ySQAQuFEVwdFJiWLnHFzaAP741XazPk3pj-_EYTqIG8)
+
+![image](https://github.com/ahmed-bentajhamyani/answers-grading-system-application/assets/91638100/10d886bc-a1fe-4373-b6df-54207ea0e8a1)
+
+## Establishment of Arabic Natural language processing pipeline
+
+**pipeline** refers to a sequence of steps or processes that are applied successively to solve a specific problem. A machine learning pipeline is a series of operations that enable data processing, model training, and prediction on new data.
+
+![image](https://github.com/ahmed-bentajhamyani/answers-grading-system-application/assets/91638100/22f4c1b6-64a7-4f74-adca-073e12ba85a1)
+
+In our project, we approached each question as an individual model, treating them as separate entities. This approach allowed us to focus on the specific requirements and characteristics of each question and develop tailored solutions accordingly. I will now outline the process we followed for Question 1, which was repeated for the other questions as well.
+
+### Exploratory data analysis
+
+### Loading data
+
+![image](https://github.com/ahmed-bentajhamyani/answers-grading-system-application/assets/91638100/c47cc30a-3497-4106-9daa-06d0eeacdd5e)
+
+### characteristics of dataset
+
+![image](https://github.com/ahmed-bentajhamyani/answers-grading-system-application/assets/91638100/2b505fed-6062-4fbe-962a-85af6c6a6aa1)
+
+![image](https://github.com/ahmed-bentajhamyani/answers-grading-system-application/assets/91638100/0750327f-ef09-44df-991e-d342d5a07b38)
+
+dataset is balanced
+
+![image](https://github.com/ahmed-bentajhamyani/answers-grading-system-application/assets/91638100/90f74db8-5192-495a-b78c-067d8cd70d78)
+
+### Data Cleaning
+
+For data cleaning, we performed two essential tasks to ensure better performance for our model: removing duplicate values and handling null values.
+
+![image](https://github.com/ahmed-bentajhamyani/answers-grading-system-application/assets/91638100/79b41f53-fa69-4e71-8887-159777c9097f)
+
+## Data Pre-Preprocessing
+
+Data preprocessing is a crucial step in machine learning that involves preparing and transforming raw data into a suitable format for model training. It aims to improve the quality and usability of the data by addressing various issues such as missing values, outliers, inconsistencies, and irrelevant features. Data preprocessing plays a significant role in enhancing the performance and accuracy of machine learning models.
+
+In our data processing pipeline, we utilized the **`nltk.tokenize`** module's **`word_tokenize`** function for tokenization , This function allowed us to break down sentences or paragraphs into individual words or tokens. By using **`word_tokenize`**, we obtained a list of tokens, where each token represented a distinct word in the text.  
+
+We utilized also  the **`gensim.models`** module's **`Word2Vec`** class for word embedding generation.
+
+```python
+def txt_preprocess(text):
+text = text.lower()
+tokens = word_tokenize(text)
+return tokens
+```
+
+```python
+def txt_preprocess(text):
+text = text.lower()
+tokens = word_tokenize(text)
+return tokens
+```
+
+```python
+model_word2vec = Word2Vec(df['tokens'], vector_size=100, window=5, min_count=1, workers=4)
+```
+
+the result was 
+
+![image](https://github.com/ahmed-bentajhamyani/answers-grading-system-application/assets/91638100/ecd3f85f-d907-4d3a-a66d-7b6b4b9db149)
+
+### split data
+
+To split the data for training and testing purposes, considering our relatively small dataset, we allocated 15% of the data for testing and the remaining portion for training the model.
+
+```python
+train_data = df.sample(frac=0.85, random_state=42)
+test_data = df.drop(train_data.index)
+```
+
+## building Models
+
+For the training phase, I employed multiple machine learning models to determine the best-performing one. The models I utilized for classification included Random Forest, SVM with a linear kernel, SVM with an RBF kernel, K-Nearest Neighbors (KNN), Naive Bayes, Decision Tree, Artificial Neural Network, and ensemble learning with bagging.
+
+By leveraging a variety of models, each with its unique characteristics and learning algorithms, I aimed to explore different approaches to classification and identify the model that exhibited the highest performance on the given task. 
+
+```python
+def getModel(name):
+if name == 'svm_linear':
+model_svm_linear = SVC(kernel='linear' ,probability=True)
+model_svm_linear.fit(X_train, Y_train)
+return model_svm_linear
+elif name == 'svm_rbf':
+model_svm_rbf = SVC(kernel='rbf' , probability=True)
+model_svm_rbf.fit(X_train, Y_train)
+return model_svm_rbf
+elif name == 'random_forest':
+model_rf = RandomForestClassifier(n_estimators=100, random_state=42)
+model_rf.fit(X_train, Y_train)
+return model_rf
+elif name == 'knn':
+model_knn = KNeighborsClassifier(n_neighbors=15)
+model_knn.fit(X_train, Y_train)
+return model_knn
+elif name == 'naive_bayes':
+model_nb = GaussianNB()
+model_nb.fit(X_train, Y_train)
+return model_nb
+elif name == 'bagging':
+# Créer le modèle de base
+base_model = DecisionTreeClassifier()
+model_bagging = BaggingClassifier(base_estimator=base_model, n_estimators=10, random_state=42)
+# Entraîner le modèle Bagging
+model_bagging.fit(X_train, Y_train)
+return model_bagging
+elif name == 'ann':
+# MLP: création + entrainement
+model_ANN = MLPClassifier(hidden_layer_sizes=(15, 10), random_state=1, max_iter=800)
+model_ANN.fit(X_train , Y_train)
+return model_ANN
+elif name == 'decision_tree':
+model_dt = DecisionTreeClassifier()
+model_dt.fit(X_train, Y_train)
+return model_dt
+else:
+raise ValueError("Invalid model name.")
+```
+
+```python
+models = [
+getModel('svm_linear'),
+getModel('svm_rbf'),
+getModel('random_forest'),
+getModel('knn'),
+getModel('naive_bayes'),
+getModel("ann"),
+getModel('bagging'),
+getModel('decision_tree')
+]
+models_names = [
+'SVM Linear',
+'SVM RBF',
+'Random Forest',
+'KNN',
+'Naive Bayes',
+'ANN',
+'Ensemble Learning (Bagging)',
+'Decision Tree'
+]
+```
+
+Evaluating the performance of these models is crucial to assess their effectiveness and determine their suitability for the given problem. One commonly used metric for measuring model performance is accuracy and AUC Area under the ROC Curve. Accuracy provides an indication of how well the model predicts the correct outcomes compared to the total number of predictions made.
+
+ In the following sections, we will analyze and compare the accuracy of the different models we employed, shedding light on their strengths and weaknesses in handling the task at hand.
+
+```
+accuracy SVM Linear :  0.35
+accuracy SVM RBF :  0.8
+accuracy Random Forest :  0.7
+accuracy KNN :  0.65
+accuracy Naive Bayes :  0.65
+accuracy ANN :  0.8
+accuracy Ensemble Learning (Bagging) :  0.6
+accuracy Decision Tree :  0.45
+```
+
+```
+SVM Linear  Aire sous la courbe ROC: 0.7455357142857141
+SVM RBF  Aire sous la courbe ROC: 0.9097222222222222
+Random Forest  Aire sous la courbe ROC: 0.8663194444444445
+KNN  Aire sous la courbe ROC: 0.8296130952380952
+Naive Bayes  Aire sous la courbe ROC: 0.8492063492063492
+ANN  Aire sous la courbe ROC: 0.9126984126984127
+Ensemble Learning (Bagging)  Aire sous la courbe ROC: 0.8645833333333334
+Decision Tree  Aire sous la courbe ROC: 0.6994047619047619
+```
+
+To select the best model, I relied on **accuracy** as a performance metric. However, I also took into consideration the risk of overfitting by using **auc** metric , and aiming to avoid models with accuracy close to 100%. To ensure a comprehensive evaluation, I created a small test dataset characterized by its diversity. I applied this test dataset to all the models, carefully assessing their performance. Ultimately, I selected the model that demonstrated the highest accuracy without approaching the 100% mark, as this could indicate overfitting. By utilizing this approach, I aimed to strike a balance between accuracy and generalization, ultimately identifying the model that exhibited the best performance on the given task.
+
+| quetions | accuracy | best model |
+| --- | --- | --- |
+| 1 | 0.8 | Decision Tree |
+| 2 | 0.9 | Naive Bayes |
+| 3 | 0.75 | Naive Bayes |
+| 4 | 0.77 | Random Forest |
+| 5 | 0.74 | ANN |
+| 6 | 0.73 | ANN |
+| 7 | 0.88 | Random Forest |
+| 8 | 0.81 | SVM RBF |
+| 9 | 0.85 | SVM RBF |
+| 10 | 0.85 | ANN |
+
+### Testing Models
+
+![image](https://github.com/ahmed-bentajhamyani/answers-grading-system-application/assets/91638100/b8e88474-3def-4602-86d4-a8bd0e6b0d07)
+
+### saving the best model
+
+To save the best model, I utilized [The pickle library](https://docs.python.org/3/library/pickle.html) . The pickle library in Python provides a straightforward way to serialize and store Python objects, including machine learning models, as binary files. By using pickle, I was able to save the trained model to disk for later use without having to retrain it from scratch.
+
+[The pickle library](https://docs.python.org/3/library/pickle.html) allows me to save the entire model object, including its architecture, parameters, and trained weights, in a compact binary format. This serialized representation can be easily stored on disk or transferred across different systems or environments.
+
+```python
+model_path = '../saved_models/model_question1.h5'
+with open(model_path, 'wb') as file:
+pickle.dump((model_svm_rbf, model_word2vec), file)
+```
+
+```python
+with open(model_path, "rb") as file:
+        model, model_word2vec = pickle.load(file)
+```
+
+![image](https://github.com/ahmed-bentajhamyani/answers-grading-system-application/assets/91638100/860224d4-1885-4e12-9715-1f2307e69633)
+
 
 ## Backend of our Application
 
