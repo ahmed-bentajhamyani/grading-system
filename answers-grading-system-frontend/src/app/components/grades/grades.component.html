@@ -1,6 +1,5 @@
 <div class="">
-    <p class="font-bold text-gray-900 text-2xl my-4">اختبر معلوماتك التاريخية عن المغرب
-        واستمتع بالتعلم.</p>
+    <p class="font-bold text-gray-900 text-2xl my-4">تقييم إجاباتكم بالذكاء الاصطناعي.</p>
     <form class="">
         <ng-container *ngFor="let q of questions">
             <div class="mb-4">
@@ -37,9 +36,9 @@
         </ng-container>
 
         <div class="flex items-center justify-between mt-2">
-            <a (click)="resetGrades()" href="/"
-                class="text-white text-center bg-emerald-800/95 hover:bg-emerald-800/75 rounded-lg focus:ring-4 focus:outline-none focus:ring-emerald-800/60 text-base select-none cursor-pointer mt-2 px-8 py-4">ابدأ
-                الاختبار!</a>
+            <a routerLink="/" (click)="resetGrades()"
+                class="text-white text-center bg-emerald-800/95 hover:bg-emerald-800/75 rounded-lg focus:ring-4 focus:outline-none focus:ring-emerald-800/60 text-base select-none cursor-pointer mt-2 px-8 py-4">الصفحة
+                الرئيسية</a>
         </div>
     </form>
 </div>

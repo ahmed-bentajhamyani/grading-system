@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { Apollo, gql } from 'apollo-angular';
-import { delay } from 'rxjs';
-import { Answers } from 'src/app/models/answers';
 import { Grade } from 'src/app/models/grade';
 import { ServiceService } from 'src/app/service.service';
 
@@ -11,7 +9,6 @@ import { ServiceService } from 'src/app/service.service';
   styleUrls: ['./grades.component.css']
 })
 export class GradesComponent {
-  private storageKey = 'answers';
   questions: any;
   answers: any;
   grade: any;
@@ -50,8 +47,7 @@ export class GradesComponent {
   getGrades() {
     this.grades = []
     this.getAnswers();
-    console.log()
-    for (let answer of this.answers) {
+    for (let answer of Object.values(this.answers)) {
       this.getGrade(answer);
     }
   }
@@ -103,19 +99,6 @@ export class GradesComponent {
   }
 
   resetGrades() {
-    // this.apollo
-    //   .watchQuery({
-    //     query: gql`
-    //       query {
-    //         resetGrades {
-    //           questionId
-    //           answer
-    //           grade
-    //         }
-    //       }
-    //     `,
-    //   }).valueChanges.subscribe((result: any) => {
-    //     this.grades = result.data?.grades;
-    //   });
+    // this.service.clearAnswers();
   }
 }

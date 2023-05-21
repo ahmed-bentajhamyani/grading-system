@@ -8,9 +8,6 @@ from static.models.all_models import predict
 # https://www.tutorialspoint.com/fastapi/fastapi_using_graphql.htm tuto
 
 
-grades = []
-
-
 @strawberry.type
 class Question:
     question_id: int
@@ -34,10 +31,8 @@ class Grade:
 class Mutation:
     @strawberry.mutation
     def recover_answer(self, question_id: int, answer: str) -> Grade:
-        global grades
         grade = predict(question_id, answer)
         new_answer = Grade(question_id=question_id, answer=answer, grade=grade)
-        # grades.append(new_answer)
         return new_answer
 
 
@@ -81,7 +76,7 @@ class Query:
         return [
             Answer(
                 question_id=1,
-                answer="حكمت سلالة الأدارسة المغرب من 789 إلى 978 ميلادية.",
+                answer="حكمت سلالة الأدارسة المغرب من 789 إلى 974 ميلادية.",
             ),
             Answer(
                 question_id=2,
@@ -117,16 +112,6 @@ class Query:
             ),
             Answer(question_id=10, answer="اعتمد علم بلاد المغرب بشكل رسمي سنة 1915م."),
         ]
-
-    @strawberry.field
-    def grades(self) -> List[Grade]:
-        return grades
-
-    @strawberry.field
-    def reset_grades(self) -> List[Grade]:
-        global grades
-        grades = []
-        return grades
 
 
 schema = strawberry.Schema(query=Query, mutation=Mutation)
