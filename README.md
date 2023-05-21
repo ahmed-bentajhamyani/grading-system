@@ -16,21 +16,21 @@ Arabic Automated Short Answers Grading System for **Moroccan History**, the ide
 **Tools :** FastAPI, GraphQL, Angular, Tailwindcss, Docker, Github, Scrapy, NLTK, Word2Vec.
 
 ## Table of contents
-[Scraping data](#scraping-data)
+[Scraping Data](#scraping-data)
 
-[Establishment of Arabic Natural language processing pipeline](#establishment-of-arabic-natural-language-processing-pipeline)
+[Establishment of Arabic Natural Language Processing Pipeline](#establishment-of-arabic-natural-language-processing-pipeline)
 
 [Exploratory data analysis (EDA)](#exploratory-data-analysis)
-* [loading data](#loading-data)
-* [characteristics of dataset](#characteristics-of-dataset)
+* [Loading Data](#loading-data)
+* [Characteristics Of Dataset](#characteristics-of-dataset)
 * [Data Cleaning](#data-cleaning)
 
 [Data Pre-Preprocessing](#data-pre-preprocessing)
-* [split data](#split-data)
+* [Split Data](#split-data)
 
 [building Models](#building-models)
 * [Testing  Models](#testing-models)
-* [saving the best model](#saving-the-best-model)
+* [Saving The Best Model](#saving-the-best-model)
 
 [Backend of our Application](#backend-of-our-application)
 * [FastAPI](#fastapi)
@@ -81,9 +81,9 @@ Google Forms
 
 ![image](https://github.com/ahmed-bentajhamyani/answers-grading-system-application/assets/91638100/10d886bc-a1fe-4373-b6df-54207ea0e8a1)
 
-## Establishment of Arabic Natural language processing pipeline
+## Establishment of Arabic Natural Language Processing Pipeline
 
-**pipeline** refers to a sequence of steps or processes that are applied successively to solve a specific problem. A machine learning pipeline is a series of operations that enable data processing, model training, and prediction on new data.
+**Pipeline** refers to a sequence of steps or processes that are applied successively to solve a specific problem. A machine learning pipeline is a series of operations that enable data processing, model training, and prediction on new data.
 
 ![image](https://github.com/ahmed-bentajhamyani/answers-grading-system-application/assets/91638100/22f4c1b6-64a7-4f74-adca-073e12ba85a1)
 
