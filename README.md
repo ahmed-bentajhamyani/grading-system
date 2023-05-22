@@ -27,9 +27,9 @@ Arabic Automated Short Answers Grading System for **Moroccan History**, the ide
 * [Data Cleaning](#data-cleaning)
 
 [Data Pre-Preprocessing](#data-pre-preprocessing)
-* [Split Data](#split-the-data)
+* [Split the Data](#split-the-data)
 
-[building Models](#building-models)
+[build Models](#build-models)
 * [Testing  Models](#testing-models)
 * [Saving The Best Model](#saving-the-best-model)
 
