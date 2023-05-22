@@ -82,7 +82,6 @@ Google Forms
 
 ![the answers to each question](images/Untitled.png)
 
-the answers to each question
 
 ## Establishment of Arabic Natural language processing pipeline
 
