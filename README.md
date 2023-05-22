@@ -19,7 +19,7 @@ Arabic Automated Short Answers Grading System for **Moroccan History**, the ide
 
 [Scraping Data](#scraping-data)
 
-[Establishment of Arabic Natural Language Processing Pipeline](#establishment-of-arabic-natural-language-processing-pipeline)
+[Establishment of Arabic Natural language processing pipeline](#establishment-of-arabic-natural-language-processing-pipeline)
 
 [Exploratory data analysis (EDA)](#exploratory-data-analysis)
 * [Loading Data](#loading-data)
