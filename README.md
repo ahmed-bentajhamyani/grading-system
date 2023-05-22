@@ -27,7 +27,7 @@ Arabic Automated Short Answers Grading System for **Moroccan History**, the ide
 * [Data Cleaning](#data-cleaning)
 
 [Data Pre-Preprocessing](#data-pre-preprocessing)
-* [Split the Data](#split-the-data)
+* [Split Data](#split-data)
 
 [build Models](#build-models)
 * [Testing  Models](#testing-models)
@@ -92,7 +92,7 @@ the answers to each question
 
 In our project, we approached each question as an individual model, treating them as separate entities. This approach allowed us to focus on the specific requirements and characteristics of each question and develop tailored solutions accordingly. I will now outline the process we followed for Question 1, which was repeated for the other questions as well.
 
-### Exploratory data analysis (EDA)
+### Exploratory Data Analysis
 
 ### Loading Data
 
@@ -142,7 +142,7 @@ the result was
 
 ![Untitled](images/Untitled%207.png)
 
-### split the data
+### Split Data
 
 To split the data for training and testing purposes, considering our relatively small dataset, we allocated 15% of the data for testing and the remaining portion for training the model.
 
