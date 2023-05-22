@@ -4,9 +4,7 @@
 
 # Arabic Automated Short Answers Grading System
 
-## Introduction
-
-Arabic Automated short answers grading system for **Moroccan history**, the idea behind this system is to give the adequate grade to the students according to their answers, the system should be in Arabic, and you should prepare your own dataset.
+Arabic Automated Short Answers Grading System for **Moroccan History**, the idea behind this system is to give the adequate grade to the students according to their answers, the system should be in Arabic, and you should prepare your own dataset.
 
 - Scraping data from several sources: Arabic websites, Datasets, books, etc.
 - Establishment of Arabic Natural language processing pipeline.
@@ -15,7 +13,7 @@ Arabic Automated short answers grading system for **Moroccan history**, the ide
 - Evaluation of the models then the choice of the best one
 - Model deployment and consumption via spa web application.
 
-**Tools :** NLTK, Word2vec, Glove ,Sklearn , fastapi , GraphQL , angular , scrapy, Doker , kubernetes , airflow , kibana, github.
+**Tools :** FastAPI, GraphQL, Angular, Tailwindcss, Docker, Github, Scrapy, NLTK, Word2Vec.
 
 ## Table of contents
 
@@ -96,11 +94,11 @@ In our project, we approached each question as an individual model, treating the
 
 ### Exploratory data analysis (EDA)
 
-- **loading data**
+### Loading Data
 
 ![Untitled](images/Untitled%202.png)
 
-- **characteristics of dataset**
+### Characteristics Of Dataset
 
 ![Untitled](images/Untitled%203.png)
 
@@ -110,13 +108,13 @@ In our project, we approached each question as an individual model, treating the
 
 dataset is balanced
 
-- **Data Cleaning**
+### Data Cleaning
 
 For data cleaning, we performed two essential tasks to ensure better performance for our model: removing duplicate values and handling null values.
 
 ![Untitled](images/Untitled%206.png)
 
-- **Data Pre-Preprocessing**
+### Data Pre-Preprocessing
 
 Data preprocessing is a crucial step in machine learning that involves preparing and transforming raw data into a suitable format for model training. It aims to improve the quality and usability of the data by addressing various issues such as missing values, outliers, inconsistencies, and irrelevant features. Data preprocessing plays a significant role in enhancing the performance and accuracy of machine learning models.
 
@@ -144,7 +142,7 @@ the result was
 
 ![Untitled](images/Untitled%207.png)
 
-- ****split the data****
+### split the data
 
 To split the data for training and testing purposes, considering our relatively small dataset, we allocated 15% of the data for testing and the remaining portion for training the model.
 
@@ -153,7 +151,7 @@ train_data = df.sample(frac=0.85, random_state=42)
 test_data = df.drop(train_data.index)
 ```
 
-- **build Models**
+### build Models
 
 For the training phase, I employed multiple machine learning models to determine the best-performing one. The models I utilized for classification included Random Forest, SVM with a linear kernel, SVM with an RBF kernel, K-Nearest Neighbors (KNN), Naive Bayes, Decision Tree, Artificial Neural Network, and ensemble learning with bagging.
 
@@ -264,11 +262,12 @@ To select the best model, I relied on **accuracy** as a performance metric. Howe
 | 8 | 0.81 | SVM RBF |
 | 9 | 0.85 | SVM RBF |
 | 10 | 0.85 | ANN |
-- ****Testing  Models****
+
+### Testing Models
 
 ![Untitled](images/Untitled%208.png)
 
-- **saving the best model**
+### Saving The Best Model
 
 To save the best model, I utilized [The pickle library](https://docs.python.org/3/library/pickle.html) . The pickle library in Python provides a straightforward way to serialize and store Python objects, including machine learning models, as binary files. By using pickle, I was able to save the trained model to disk for later use without having to retrain it from scratch.
 
