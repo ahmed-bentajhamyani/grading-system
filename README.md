@@ -17,7 +17,41 @@ Arabic Automated short answers grading system for **Moroccan history**, the ide
 
 ## Table of contents
 
-## 1. Scraping data
+[Scraping Data](#scraping-data)
+
+[Establishment of Arabic Natural Language Processing Pipeline](#establishment-of-arabic-natural-language-processing-pipeline)
+
+[Exploratory data analysis (EDA)](#exploratory-data-analysis)
+* [Loading Data](#loading-data)
+* [Characteristics Of Dataset](#characteristics-of-dataset)
+* [Data Cleaning](#data-cleaning)
+
+[Data Pre-Preprocessing](#data-pre-preprocessing)
+* [Split Data](#split-data)
+
+[building Models](#building-models)
+* [Testing  Models](#testing-models)
+* [Saving The Best Model](#saving-the-best-model)
+
+[Backend of our Application](#backend-of-our-application)
+* [FastAPI](#fastapi)
+* [GraphQL Server Side](#graphql-server-side)
+* [Docker Server Side](#docker-server-side)
+
+[Frontend of our Application](#frontend-of-our-application)
+* [Angular](#angular)
+* [GraphQL Client Side](#graphql-client-side)
+* [Docker Client Side](#docker-client-side)
+
+[Testing the Application](#testing-the-application)
+* [Home Page](#home-page)
+* [Question Page](#question-page)
+* [Result Page](#result-page)
+
+
+[Creators](#creators)
+
+## Scraping data
 
 In our project, one of the most challenging tasks we encountered was the **collection of training data** for our machine learning models. Gathering a sufficient amount of high-quality data was crucial for the success of our project. 
 
@@ -50,7 +84,7 @@ Google Forms
 
 the answers to each question
 
-## 2. Establishment of Arabic Natural language processing pipeline
+## Establishment of Arabic Natural language processing pipeline
 
 **pipeline** refers to a sequence of steps or processes that are applied successively to solve a specific problem. A machine learning pipeline is a series of operations that enable data processing, model training, and prediction on new data.
 
