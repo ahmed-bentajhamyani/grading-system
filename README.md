@@ -344,7 +344,7 @@ watchfiles==0.19.0
 websockets==11.0.3
 ```
 
-### GraphQL
+### GraphQL Server Side
 
 To send request from the frontend to backend we used **GraphQL** a query language for APIs and a runtime for fulfilling those queries with the existing data.
 
@@ -352,7 +352,7 @@ We implemented it in our application with the library ************Strawberry.***
 
 ![Untitled](images/Untitled%2010.png)
 
-### Docker
+### Docker Server Side
 
 To build and run our application we used **Docker.**
 
@@ -409,7 +409,7 @@ For the frontend we choose **Angular** and ************************TailwindCSS**
 
 ![anguar logo.png](images/anguar_logo.png)
 
-### GraphQL
+### GraphQL Client Side
 
 To use **************GraphQL************** in the client side we needed also to download a library called `apollo-angular` so we did using this command :
 
@@ -423,7 +423,7 @@ ng add apollo-angular
 const uri = 'http://localhost:8000'; // <-- the URL of our GraphQL server
 ```
 
-### Docker
+### Docker Client Side
 
 To build and run our frontend application we created a `Dockerfile` containing the following code :
 
