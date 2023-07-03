@@ -4,7 +4,7 @@
 
 # Arabic Automated Short Answers Grading System
 
-Arabic Automated Short Answers Grading System for **Moroccan History**, the idea behind this system is to give the adequate grade to the students according to their answers, the system should be in Arabic, and you should prepare your own dataset.
+Arabic Automated Short Answers Grading System for **Moroccan History**, the idea behind this system is to give the adequate grade to the students according to their answers, the system should be in Arabic, and we should prepare our own dataset.
 
 - Scraping data from several sources: Arabic websites, Datasets, books, etc.
 - Establishment of Arabic Natural language processing pipeline.
