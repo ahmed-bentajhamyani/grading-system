@@ -49,7 +49,7 @@ Arabic Automated Short Answers Grading System for **Moroccan History**, the ide
 * [Result Page](#result-page)
 
 
-[Creators](#creators)
+[Contributors](#contributors)
 
 ## Scraping data
 
@@ -478,7 +478,12 @@ By clicking on the button ****عرض النتيجة**** the grades given by the 
 
 ![Untitled](images/Untitled%2016.png)
 
-## Creators
+## Contributors
 
 - [BENTAJ HAMYANI Ahmed](https://github.com/ahmed-bentajhamyani)
 - [EL METIOUI Fouad](https://github.com/FouadElMetioui)
+
+<a href="https://github.com/ahmed-bentajhamyani/answers-grading-system-application/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=ahmed-bentajhamyani/answers-grading-system-application" />
+</a>
+
